@@ -21,7 +21,9 @@
 
 #ifndef SYSTEM_H
 #define SYSTEM_H
-
+//MIRZE
+#include<unistd.h>
+#include<vector>
 #include<string>
 #include<thread>
 #include<opencv2/core/core.hpp>
@@ -57,7 +59,8 @@ public:
     };
 
 public:
-
+    void * getPC();
+    
     // Initialize the SLAM system. It launches the Local Mapping, Loop Closing and Viewer threads.
     System(const string &strVocFile, const string &strSettingsFile, const eSensor sensor, const bool bUseViewer = true);
 

@@ -97,6 +97,7 @@ void Viewer::Run()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         mpMapDrawer->GetCurrentOpenGLCameraMatrix(Twc);
+        std::cout<<"Position("+std::to_string(Twc.m[12])+","+std::to_string(Twc.m[13])+","+std::to_string(Twc.m[14])+")\n";
 
         if(menuFollowCamera && bFollow)
         {

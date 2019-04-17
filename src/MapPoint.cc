@@ -89,6 +89,18 @@ cv::Mat MapPoint::GetNormal()
     return mNormalVector.clone();
 }
 
+int MapPoint::GetNormalSize()
+{
+    unique_lock<mutex> lock(mMutexPos);
+    return *mNormalVector.size.p;
+}
+
+float MapPoint::GetNormaAt(int at)
+{
+    unique_lock<mutex> lock(mMutexPos);
+    return mNormalVector.at<float>(at);
+}
+
 KeyFrame* MapPoint::GetReferenceKeyFrame()
 {
     unique_lock<mutex> lock(mMutexFeatures);

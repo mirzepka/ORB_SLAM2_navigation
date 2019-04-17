@@ -29,6 +29,7 @@
 #include<opencv2/features2d/features2d.hpp>
 
 #include<mutex>
+#include "MapPoint.h"
 
 
 namespace ORB_SLAM2
@@ -47,7 +48,7 @@ public:
 
     // Draw last processed frame.
     cv::Mat DrawFrame();
-
+    void * getPC();
 protected:
 
     void DrawTextInfo(cv::Mat &im, int nState, cv::Mat &imText);
@@ -56,6 +57,7 @@ protected:
     cv::Mat mIm;
     int N;
     vector<cv::KeyPoint> mvCurrentKeys;
+    vector<MapPoint*> mvCurrentMapPoints;
     vector<bool> mvbMap, mvbVO;
     bool mbOnlyTracking;
     int mnTracked, mnTrackedVO;
@@ -64,7 +66,8 @@ protected:
     int mState;
 
     Map* mpMap;
-
+    float pc[4][3];
+    
     std::mutex mMutex;
 };
 

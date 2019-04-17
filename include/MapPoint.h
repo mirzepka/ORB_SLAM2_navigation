@@ -44,6 +44,8 @@ public:
 
     void SetWorldPos(const cv::Mat &Pos);
     cv::Mat GetWorldPos();
+    int GetNormalSize();
+    float GetNormaAt(int at);
 
     cv::Mat GetNormal();
     KeyFrame* GetReferenceKeyFrame();

@@ -23,8 +23,10 @@
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
-
+#include "opencv2/aruco.hpp"
 #include<mutex>
+
+#include <iostream>
 
 namespace ORB_SLAM2
 {
@@ -33,6 +35,14 @@ FrameDrawer::FrameDrawer(Map* pMap):mpMap(pMap)
 {
     mState=Tracking::SYSTEM_NOT_READY;
     mIm = cv::Mat(480,640,CV_8UC3, cv::Scalar(0,0,0));
+}
+
+void * FrameDrawer::getPC()
+{
+    unique_lock<mutex> lock(mMutex);
+    float (*res)[3] = new float[4][3];
+    memcpy(res, pc, 3*4*sizeof(pc[0][0]));
+    return (void *)res;
 }
 
 cv::Mat FrameDrawer::DrawFrame()
@@ -69,10 +79,33 @@ cv::Mat FrameDrawer::DrawFrame()
         {
             vCurrentKeys = mvCurrentKeys;
         }
-    } // destroy scoped mutex -> release mutex
-
+    } // destroyq
     if(im.channels()<3) //this should be always true
         cvtColor(im,im,CV_GRAY2BGR);
+
+
+  
+    vector<int> markerIds;
+    vector<vector<cv::Point2f>> markerCorners, rejectedCandidates;
+
+    cv::Ptr<cv::aruco::Dictionary> markerDictionary = cv::aruco::getPredefinedDictionary(cv::aruco::PREDEFINED_DICTIONARY_NAME::DICT_4X4_50);
+
+    cv::aruco::detectMarkers(im, markerDictionary, markerCorners, markerIds);
+
+    vector<cv::Vec3d> rvec, tvec;
+    cv::aruco::drawDetectedMarkers(im, markerCorners, markerIds, cv::Scalar(0, 255, 0));
+   
+   /* Estimate axies*/
+    // cv::Mat intrinsic;
+    // cv::Mat distortion;
+    // cv::aruco::estimatePoseSingleMarkers(markerCorners, 0.1016f, intrinsic, distortion, rvec, tvec); 
+    // for (int index_marker = 0; index_marker < markerIds.size(); index_marker++)
+    // {
+    // cv::aruco::drawAxis(im, intrinsic, distortion, rvec[index_marker], tvec[index_marker], 0.1);
+    // cout << index_marker << endl;
+    // }
+
+
 
     //Draw
     if(state==Tracking::NOT_INITIALIZED) //INITIALIZING
@@ -88,6 +121,7 @@ cv::Mat FrameDrawer::DrawFrame()
     }
     else if(state==Tracking::OK) //TRACKING
     {
+        std::vector<std::vector<cv::Mat>> matching_points(4, std::vector<cv::Mat>());
         mnTracked=0;
         mnTrackedVO=0;
         const float r = 5;
@@ -105,8 +139,37 @@ cv::Mat FrameDrawer::DrawFrame()
                 // This is a match to a MapPoint in the map
                 if(vbMap[i])
                 {
-                    cv::rectangle(im,pt1,pt2,cv::Scalar(0,255,0));
-                    cv::circle(im,vCurrentKeys[i].pt,2,cv::Scalar(0,255,0),-1);
+                    cv::Scalar scalar(0,255,255);
+
+                    for(auto rectagle : markerCorners)
+                    {
+                        int idx = 0;
+                        //MIRZE TODO add if for specified marker id
+                        for(auto point : rectagle)
+                        {
+                            float x=pt1.x-point.x;
+                            float y=pt1.y-point.y;
+                            if(x<0.0)x=-x;
+                            if(y<0.0)y=-y;
+                            if(x<10 && y<10) {
+                                scalar=cv::Scalar(80,80,80);
+                                int font = cv::FONT_HERSHEY_SIMPLEX;
+                                if (mvCurrentMapPoints[i] != NULL) {
+                                    if (mvCurrentMapPoints[i]->GetNormalSize()>0) {
+                                        // matching_points[idx].push_back(mvCurrentMapPoints[i]->GetNormal());
+                                        matching_points[idx].push_back(mvCurrentMapPoints[i]->GetWorldPos());
+                                        cv::putText(im,"P("+std::to_string(mvCurrentMapPoints[i]->GetNormaAt(0)) +
+                                                       ", "+std::to_string(mvCurrentMapPoints[i]->GetNormaAt(1)) +
+                                                       ", "+std::to_string(mvCurrentMapPoints[i]->GetNormaAt(2)) + ")",vCurrentKeys[i].pt, font, 0.5,(255,255,255),1,cv::LINE_AA);
+                                        break;
+                                    }
+                                }
+                            }
+                            idx++;
+                        }
+                    }
+                    cv::rectangle(im,pt1,pt2,scalar);
+                    cv::circle(im,vCurrentKeys[i].pt,2,cv::Scalar(0,255,255),-1);
                     mnTracked++;
                 }
                 else // This is match to a "visual odometry" MapPoint created in the last frame
@@ -117,6 +180,36 @@ cv::Mat FrameDrawer::DrawFrame()
                 }
             }
         }
+        float pc_tmp[4][3];
+        int ind = 0;
+        for (auto vec : matching_points) {
+            float x=0,y=0,z=0;
+            for(auto point : vec) {
+                x += point.at<float>(0);
+                y += point.at<float>(1);
+                z += point.at<float>(2);
+            }
+            if (!vec.empty())
+            {
+                x/=vec.size();
+                y/=vec.size();
+                z/=vec.size();
+            }
+            pc_tmp[ind][0] = x;
+            pc_tmp[ind][1] = y;
+            pc_tmp[ind][2] = z;
+            ++ind;
+            std::cout<<"("+std::to_string(x)+","+std::to_string(y)+","+std::to_string(z)+")\n";
+        }
+        {
+            unique_lock<mutex> lock(mMutex);
+            for (int p1=0; p1<4; ++p1) {
+                for (int r1=0; r1<3; ++r1) {
+                    pc[p1][r1] = pc_tmp[p1][r1]; 
+                }
+            }
+        }
+        std::cout<<std::endl;
     }
 
     cv::Mat imWithInfo;
@@ -166,9 +259,13 @@ void FrameDrawer::DrawTextInfo(cv::Mat &im, int nState, cv::Mat &imText)
 
 void FrameDrawer::Update(Tracking *pTracker)
 {
+    // std::cout<<"MIRZE: pTracker: mCurrentFrame.mvKeys.size()=" << pTracker->mCurrentFrame.mvKeys.size() << 
+    // " mCurrentFrame.mvpMapPoints.size()" << pTracker->mCurrentFrame.mvpMapPoints.size() << std::endl;
+
     unique_lock<mutex> lock(mMutex);
     pTracker->mImGray.copyTo(mIm);
     mvCurrentKeys=pTracker->mCurrentFrame.mvKeys;
+    mvCurrentMapPoints=pTracker->mCurrentFrame.mvpMapPoints;
     N = mvCurrentKeys.size();
     mvbVO = vector<bool>(N,false);
     mvbMap = vector<bool>(N,false);
