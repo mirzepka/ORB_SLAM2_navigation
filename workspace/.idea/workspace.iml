@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/venv2" />
+      <excludeFolder url="file://$MODULE_DIR$/venv27" />
+      <excludeFolder url="file://$MODULE_DIR$/venv35" />
+    </content>
+    <content url="file:///opt/ros/kinetic/lib/python2.7/dist-packages" />
+    <content url="file:///usr/lib/python2.7/dist-packages" />
+    <orderEntry type="jdk" jdkName="Python 2.7 (workspace)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
+  </component>
+</module>

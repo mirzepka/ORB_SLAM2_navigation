@@ -1,0 +1,500 @@
+    3  roscore
+    4  sudo apt-get install libflashsupport 
+    5  alsamixer 
+    6  sudo alsa force-reload
+    7  sudo apt remove --purge alsa-base pulseaudio
+    8  sudo apt install alsa-base pulseradio
+    9  sudo apt install alsa-base pulseaudio
+   10  sudo alsa force-reload
+   11  cat /proc/cpuinfo | grep sse2
+   12  sudo apt-get install flashplugin-installer
+   13  sudo apt-get install browser-plugin-freshplayer-pepperflash
+   14  grep -r sm_20 .
+   15  grep -r 3m_20 .
+   16  grep -r sm_30 .
+   17  grep -r 3m_20 .
+   18  grep -r 3m_20 .
+   19  grep -r sm_20 .
+   20  vim src/CMakeLists.txt 
+   21  nvcc --version
+   22  env | grep nvcc
+   23  env | grep -i nvcc
+   24  grep -r sm_20 src/
+   25  ls
+   26  grep -r sm_20 .
+   27  grep -r sm_20 .
+   28  vim src/CMakeLists.txt 
+   29  vim ./build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   30  cd ~/Desktop/mgr/rpg_open_remode/catkin_ws/
+   31  catkin_make
+   32  sudo apt-get install nvidia-cuda-toolkit
+   33  sudo apt-get install nvidia-cuda-toolkit
+   34  catkin_make
+   35  catkin_make
+   36  make clean
+   37  ls src/
+   38  vim src/CMakeModules/FindCUDA/run_nvcc.cmake 
+   39  grep -r "Error generating file" .
+   40  grep -r "rpg_open_remode_cuda_generated_depthmap_denoiser" .
+   41  vim ./build/CMakeFiles/rpg_open_remode_cuda.dir/build.make
+   42  catkin_make
+   43  vimbash 
+   44  grep "Error generating file" .
+   45  grep -r "Error generating file" .
+   46  catkin_make
+   47  vim src/CMakeLists.txt 
+   48  grep -r "rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake" .
+   49  /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o -D generated_cubin_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt -P /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   50  vim /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt
+   51  vim /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt
+   52  /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o -D generated_cubin_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt -P /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   53  /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o -D generated_cubin_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt -P /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   54  /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o -D generated_cubin_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt -P /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   55  A
+   56  /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o -D generated_cubin_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt -P /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   57  /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o -D generated_cubin_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt -P /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   58  /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o -D generated_cubin_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt -P /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   59  /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o -D generated_cubin_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt -P /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   60  /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o -D generated_cubin_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt -P /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   61  /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o -D generated_cubin_file:STRING=/home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/./rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cubin.txt -P /home/michal/Desktop/mgr/rpg_open_remode/catkin_ws/build/CMakeFiles/rpg_open_remode_cuda_generated_depthmap_denoiser.cu.o.cmake
+   62  cd ~/Desktop/mgr/orb_slam_2_dense/catkin_ws/
+   63  ls
+   64  grep -r publish .
+   65  grep -ri publish ./src/ | grep -i dense
+   66  vim ./src/Examples/ROS/ORB_SLAM2/src/ros_mono.cc
+   67  find . -name DenseInput.h
+   68  vim ./src/Examples/ROS/ORB_SLAM2/DenseInput.h
+   69  vim ./src/Examples/ROS/ORB_SLAM2/DenseInput.h ./src/Examples/ROS/ORB_SLAM2/src/ros_mono.cc -p
+   70  ps aux | grep -i cuda
+   71  sudo apt install nvidia-cuda-toolkit
+   72  lls /usr/local/cuda
+   73  ls /usr/local/cuda
+   74  ls /usr/local/cuda-10.1/
+   75  cd /usr/local/cuda-10.1/samples/
+   76  ls
+   77  ./0_Simple/
+   78  ls 0_Simple/
+   79  cd 0_Simple/vectorAddDrv/
+   80  make
+   81  sudo make
+   82  ls
+   83  vim readme.txt 
+   84  ./vectorAddDrv 
+   85  nvcc -o vectorAdd.o vectorAdd_kernel.cu 
+   86  sudo nvcc -o vectorAdd.o vectorAdd_kernel.cu 
+   87  enc | grep -i cuda
+   88  env | grep -i cuda
+   89  vim Makefile 
+   90  cd /usr/local
+   91  rm -rf cuda*
+   92  sudo rm -rf cuda*
+   93  sudo sh /home/michal/Downloads/cuda_7.5.18_linux.run 
+   94  ls /tmp/
+   95  stat /tmp/*
+   96  sudo sh /home/michal/Downloads/cuda_7.5.18_linux.run 
+   97  sudo sh /home/michal/Downloads/cuda_9.0.176_384.81_linux.run 
+   98  sudo sh /home/michal/Downloads/cuda_9.0.176_384.81_linux.run 
+   99  sudo service lightdm stop
+  100  sudo sh /home/michal/Downloads/cuda_9.0.176_384.81_linux.run 
+  101  sudo sh /home/michal/Downloads/cuda_9.0.176_384.81_linux.run 
+  102  netcat -l -p 1234
+  103  netcat -l -p 1234
+  104  cd Desktop/mgr/
+  105  vim rosPublishImage.py 
+  106  vim startStreamRec.sh 
+  107  cat  startStreamRec.sh 
+  108  netcat 127.0.0.1 1234
+  109  ls
+  110  ls 
+  111  ls 
+  112  ls  | tee o.txt
+  113  cat o.txt 
+  114  ls | netcat 127.0.0.1 1234
+  115  ls
+  116  ls
+  117  ls ~/Downloads/
+  118  cd ~/Downloads/
+  119  ls
+  120  ls
+  121  sudo sh cuda_7.5.18_linux.run 
+  122  vimbash 
+  123  sudo sh cuda_10.1.105_418.39_linux.run 
+  124  vim /var/log/cuda-installer.log
+  125  vim /var/log/cuda-installer.log
+  126  lspci | grep -i nvidia
+  127  sudo apt-get install linux-headers-$(uname -r)
+  128  cd Desktop/mgr/
+  129  ls
+  130  ls ~/Downloads/
+  131  rm -rf /usr/local/cuda
+  132  sudo rm -rf /usr/local/cuda
+  133  sudo rm -rf /usr/local/cuda-10.1/
+  134  lsmod | grep nouveau
+  135  vim /etc/init/lightdm.conf 
+  136  cp /etc/init/lightdm.conf /etc/init/lightdm.conf2 
+  137  vim /etc/init/lightdm.conf 
+  138  sudo systemctl isolate multi-user.target
+  139  cd Downloads/
+  140  ls
+  141  ls
+  142  sudo sh cuda_10.1.105_418.39_linux.run 
+  143  vim /var/log/cuda-installer.log 
+  144  sudo systemctl disable lightdm.service
+  145  reboot
+  146  cd Downloads/
+  147  sudo sh cuda_10.1.105_418.39_linux.run 
+  148  vim /var/log/cuda-installer.log 
+  149  shutdown
+  150  date'
+  151  date
+  152  shutdown
+  153  man shutdown
+  154  man shutdown
+  155  shutdown --no-wall
+  156  date
+  157  date
+  158  reboot
+  159  vim /var/log/cuda-installer.log 
+  160  vim /var/log/nvidia-installer.log 
+  161  sudo apt-get remove --purge nvidia-418 nvidia-modprobe nvidia-settings
+  162  vim /var/log/nvidia-installer.log 
+  163  sudo sh cuda_10.1.105_418.39_linux.run 
+  164  cd Downloads/
+  165  ls
+  166  sudo sh cuda_10.1.105_418.39_linux.run 
+  167  vim /var/log/cuda-installer.log 
+  168  vim /var/log/nvidia-installer.log 
+  169  reboot
+  170  sudo apt-get purge nvidia-*
+  171  dkms  status
+  172  sudo dkms remove nvidia-418/418.39 -k 4.15.0-46-generic
+  173  sudo sh cuda_10.1.105_418.39_linux.run 
+  174  cd Downloads/
+  175  sudo sh cuda_10.1.105_418.39_linux.run 
+  176  vim /var/log/cuda-installer.log 
+  177  vim /var/log/nvidia-installer.log 
+  178  reboot
+  179  reboot
+  180  dkms  status
+  181  cd Downloads/
+  182  sudo sh cuda_10.1.105_418.39_linux.run 
+  183  vim /var/log/nvidia-installer.log 
+  184  dkms status
+  185  apt-get purge nv
+  186  vim /var/log/nvidia-installer.log 
+  187  dpkg -l | grep -i nvidia
+  188  sudo /usr/local/cuda/bin/cuda-uninstaller 
+  189  dpkg -l | grep -i nvidia
+  190  dpkg -l | grep -i nvidia
+  191  sudo dpkg -r cuda-*
+  192  sudo dpkg -r cuda-command-line-tools-10-1 
+  193  sudo dpkg -r cuda-command-line-tools-10-1 
+  194  sudo dpkg -r cuda-tools-10-1 
+  195  sudo dpkg -r cuda-toolkit-10-1 
+  196  sudo dpkg -r cuda-tools-10-1 
+  197  sudo dpkg -r cuda-command-line-tools-10-1 
+  198  sudo dpkg -r cuda-command-line-tools-10-1 
+  199  sudo dpkg -r cuda-command-line-tools-10-1 
+  200  sudo dpkg -r cuda-*
+  201  dpkg -l | grep -i nvidia
+  202  sudo dpkg -r cuda-compiler-10-1 
+  203  sudo dpkg -r cuda-cudart-10-1 
+  204  sudo dpkg -r cuda-cudart-dev-10-1 
+  205  man dpkg | grep -i dependen
+  206  sudo apt-get  remove --purge cuda-*
+  207  sudo apt-get  remove --purge cuda-
+  208  sudo apt-get  remove --purge cuda-*
+  209  sudo apt-get  remove --purge libcudart7.5 
+  210  sudo dpkg -r cuda-
+  211  sudo apt-get  remove --purge cuda-
+  212  sudo apt autoremove 
+  213  ls
+  214  ls /usr/local/
+  215  sudo sh cuda_10.1.105_418.39_linux.run 
+  216  vim /var/log/cuda-installer.log 
+  217  vim /var/log/nvidia-installer.log 
+  218  dpkg -l
+  219  | grep -i nvidia
+  220  dpkg -l | grep -i nvidia
+  221  reboot
+  222  dpkg -l | grep -i nvidia
+  223  cd Desktop/
+  224  sudo sh cuda_10.1.105_418.39_linux.run 
+  225  ls
+  226  cd ../Downloads/
+  227  sudo sh cuda_10.1.105_418.39_linux.run 
+  228  shutdown
+  229  date
+  230  dpkg -l 
+  231  dpkg -l | grep nvi
+  232  dpkg -l | grep nvidia
+  233  dpkg -l | grep cuda
+  234  vim /var/log/cuda-installer.log 
+  235  vim /var/log/nvidia-installer.log 
+  236  ls /etc/
+  237  grep -r nvidia  /etc/X11/
+  238  dpkg -l | grep nouv
+  239  dpkg -l | grep nvc
+  240  apt-get --purge remove nvidia*
+  241  sudo apt-get --purge remove nvidia*
+  242  mkdir ~/tmpBins
+  243  mkdir ~/tmpBins/usr
+  244  mkdir ~/tmpBins/usr/bin
+  245  mv /usr/bin/nvidia-* ~/tmpBins/usr/bin
+  246  sudo mv /usr/bin/nvidia-* ~/tmpBins/usr/bin
+  247  sudo mv /usr/bin/nvcc ~/tmpBins/usr/bin
+  248  sudo mv /usr/bin/nvdisasm ~/tmpBins/usr/bin
+  249  sudo mv /usr/bin/nvlink ~/tmpBins/usr/bin
+  250  sudo mv /usr/bin/nvprof ~/tmpBins/usr/bin
+  251  sudo mv /usr/bin/nvprune ~/tmpBins/usr/bin
+  252  sudo mv /usr/bin/nvvp ~/tmpBins/usr/bin
+  253  cd ~/Downloads/
+  254  ls
+  255  sudo sh cuda_10.1.105_418.39_linux.run 
+  256  vim /var/log/cuda-installer.log 
+  257  vim /var/log/nvidia-installer.log 
+  258  sudo mv  /usr/bin/cuda* ~/tmpBins/usr/bin/
+  259  dpkg -l | grep nvi
+  260  dpkg -l | grep nvid
+  261  dpkg -l | grep cud
+  262  sudo sh cuda_10.1.105_418.39_linux.run 
+  263  vim cuda_10.1.105_418.39_linux.run 
+  264  vim cuda_10.1.105_418.39_linux.run --override
+  265  sudo sh cuda_10.1.105_418.39_linux.run --override
+  266  vim /var/log/cuda-installer.log 
+  267  grep Uninstall /var/log/cuda-installer.log 
+  268  grep Uninstall /var/log/cuda-installer.log  | grep -v "cuda-10"
+  269  grep Uninstall /var/log/cuda-installer.log  | grep -v "cuda-10" | grep -v man3
+  270  grep Uninstall /var/log/cuda-installer.log  | grep -v "cuda-10" | grep -v man
+  271  grep Uninstall /var/log/cuda-installer.log  | grep -v "cuda-10" | grep -v man
+  272  grep Uninstall /var/log/cuda-installer.log  | grep -v "cuda-10" | grep -v man | grep -v log
+  273  locate  cupti | grep "libcupti.so" | tail -n1 | sed -r 's/^.*\.so\.//'
+  274  locate  cupti | grep "libcupti.so" 
+  275  sudo rm -rf /usr/local/cuda*
+  276  dpkg -l | grep cud
+  277  dpkg -l | grep nvid
+  278  locate cudnn | grep libcudnn
+  279  find /usr/ -name "*lubcudnn*"
+  280  grep Existing cuda_10.1.105_418.39_linux.run 
+  281  shutdown
+  282  dpkg -list
+  283  dpkg --list | grep nvid
+  284  dpkg --list | grep -i nvid
+  285  dpkg --list | grep -i cuda
+  286  man fiia" > ~/Desktop/nvidfiles
+  287  vim ~/Desktop/nvidfiles 
+  288  head ~/Desktop/nvidfiles 
+  289  head ~/Desktop/nvidfiles -30
+  290  head -40 ~/Desktop/nvidfiles 
+  291  mv /lib/firmware/nvidia/ /lib/firmware/nvidia2
+  292  sudo mv /lib/firmware/nvidia/ /lib/firmware/nvidia2
+  293  sudo mv /proc/driver/nvidia /proc/driver/nvidia2
+  294  sudo mv /proc/driver/nvidia/ /proc/driver/nvidia2
+  295  sudo mv /proc/driver/nvidia/ /proc/driver/nvidia2
+  296  sudo mv /proc/driver/nvidia /proc/driver/nvidia2/
+  297  sudo mv /proc/driver/nvidia /proc/driver/nv2
+  298  sudo mkdir /proc/driver/nvidia2
+  299  mkdir ~/zapasowelibki
+  300  sudo mv /proc/driver/nvidia ~/zapasowelibki/
+  301  sudo mkdir /proc/driver/nvidia* ~/zapasowelibki/
+  302  sudo mv /proc/driver/nvidia* ~/zapasowelibki/
+  303  sudo mv /proc/driver/nvidia-nvswitch/ ~/zapasowelibki/
+  304  head -40 ~/Desktop/nvidfiles 
+  305  mkdir /usr/lib/libki
+  306  sudo mkdir /usr/lib/libki
+  307  sudo mv /usr/lib/nvidia* /usr/lib/libki
+  308  mkdir /usr/share/libki
+  309  sudo mkdir /usr/share/libki
+  310  sudo mmv /usr/share/nvidia* /usr/share/libki/
+  311  sudo mv /usr/share/nvidia* /usr/share/libki/
+  312  vim ~/Desktop/nvidfiles 
+  313  mkdir ~/zapasowelibki/module
+  314  sudo mv /sys/module/nvidia  ~/zapasowelibki/module
+  315  cd Downloads/
+  316  sudo sh cuda_10.1.105_418.39_linux.run 
+  317  vim /var/log/cuda-installer.log 
+  318  vim /var/log/nvidia-installer.log 
+  319  vim ~/Desktop/nvidfiles 
+  320  vim /var/log/nvidia-installer.log 
+  321  reboot
+  322  cd ~/Downloads/
+  323  sudo sh cuda_10.1.105_418.39_linux.run 
+  324  vim /var/log/nvidia-installer.log 
+  325  reboot
+  326  cd ~/Downloads/
+  327  sudo sh cuda_10.1.105_418.39_linux.run 
+  328  vim /var/log/cuda-installer.log 
+  329  vim /var/log/nvidia-installer.log 
+  330  reboot
+  331  vim ~/Desktop/nvidfiles 
+  332  grep -r drm  /var/log/nvidia*
+  333  grep -r drm  /var/log/nvidia/.uninstallManifests/
+  334  grep -r drm  /var/log/nvidia-*
+  335  grep -r drm  /var/log/nvidia-uninstall.log 
+  336  grep -ri bios  /var/log/nvidia
+  337  ls
+  338  ls
+  339  dpkg --list | grep -i nvidia
+  340  sudo  lsof | grep nvid
+  341  ps aux | grep nvid
+  342  kill -9 201
+  343  sudo kill -9 201
+  344  ps aux | grep nvid
+  345  sudo kill -9 201
+  346  ps aux | grep nvid
+  347  ps aux | head -3
+  348  sudo pkill -f nvidia
+  349  ps aux | head -3
+  350  sudo pkill -f nvidia
+  351  ps aux | grep nvid
+  352  reboot
+  353  ls ~
+  354  reboot
+  355  history
+  356  history | head -360
+  357  sudo systemctl enable lightdm.service
+  358  reboot
+  359  reboot
+  360  history | head -360
+  361  sudo systemctl  set-default multi-user.target 
+  362  reboot
+  363  cd Desktop/mgr/
+  364  ls
+  365  ./startStreamRec.sh 
+  366  ls
+  367  python rosPublishImage.py 
+  368  _SLAM2 Mono  Data/ORBvoc.txt Data2/TUM2.yaml 
+  369  ./build.sh 
+  370  rosrun ORB_SLAM2 Mono  D1
+  371  2
+  372  3
+  373  4
+  374  5
+  375  6
+  376  7
+  377  8
+  378  9
+  379  10
+  380  11
+  381  12
+  382  13
+  383  14
+  384  sudo apt-get update
+  385  sudo apt-get update
+  386  udo apt-get update
+  387  sudo apt-get upgrade
+  388  sudo apt-get upgrade
+  389  sudo apt-get install -y build-essential cmake pkg-config
+  390  sudo apt-get install -y libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+  391  sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+  392  sudo apt-get install -y libxvidcore-dev libx264-dev
+  393  cd ~
+  394  git clone https://github.com/opencv/opencv.git
+  395  git clone https://github.com/opencv/opencv_contrib.git
+  396  cd opencv
+  397  ls
+  398  mkdir build
+  399  cd build/
+  400  cmake -D CMAKE_BUILD_TYPE=RELEASE     -D CMAKE_INSTALL_PREFIX=/usr/local     -D INSTALL_PYTHON_EXAMPLES=ON     -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules     -D BUILD_EXAMPLES=ON ..
+  401  make -j4
+  402  df -h .
+  403  df -h /
+  404  df -h /*/
+  405  df -h /
+  406  df -h /dev/sda8 
+  407  df -h .
+  408  df -h ./
+  409  du -h ./
+  410  du -h ./*/
+  411  du -h / --maxt-depth
+  412  du -h / --maxt-depth=1
+  413  du -h  --maxt-depth=1
+  414  du -h  --maxt-depth=1 /
+  415  du -h  --max-depth=1 /
+  416  sudo du -h  --max-depth=1 /
+  417  sudo du -h  --max-depth=1 /home/michal/
+  418  sudo du -h  --max-depth=1 /home/michal/ | grep G
+  419  sudo du -h  --max-depth=1 /home/michal/Downloads/ | grep G
+  420  sudo du -h   /home/michal/Downloads/ | grep G
+  421  sudo du -h  --max-depth=1 /home/michal/Downloads/ 
+  422  sudo du -h   /home/michal/Downloads/ 
+  423  sudo du -h  --max-depth=1 /home/michal/Downloads/* 
+  424  sudo du -h  --max-depth=1 /home/michal/Downloads/* | grep G
+  425  rm -rf /home/michal/Downloads/cuda_10.1.105_418.39_linux.run /home/michal/Downloads/cuda_7.5.18_linux.run /home/michal/Downloads/cuda_9.0.176_384.81_linux.run /home/michal/Downloads/cuda-repo-ubuntu1604-10-1-local-10.1.105-418.39_1.0-1_amd64.deb
+  426  sudo du -h  --max-depth=1 /
+  427  make -j4
+  428  sudo make install
+  429  sudo ldconfig
+  430  python
+  431  python3
+  432  grep -riaruco ..
+  433  cmake -D CMAKE_BUILD_TYPE=RELEASE       -D CMAKE_INSTALL_PREFIX=/usr/local/       -D PYTHON_EXECUTABLE=/usr/bin/python3.6       -D PYTHON_INCLUDE=/usr/include/python3.6/       -D PYTHON_LIBRARY=/usr/lib/python3.6/       -D PYTHON_PACKAGES_PATH=/usr/local/lib/python3.6/dist-packages/       -D PYTHON_NUMPY_INCLUDE_DIR=/usr/local/lib/python3.6/dist-packages/numpy/core/include/ \
+  434  cmake .. -DCMAKE_BUILD_TYPE=RELEASE         -DBUILD_opencv_python3=yes         -DCMAKE_INSTALL_PREFIX=/usr/local/         -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4.3/modules         -DPYTHON3_EXECUTABLE=/usr/bin/python3.6         -DPYTHON3_INCLUDE=/usr/include/python3.6/         -DPYTHON3_INCLUDE_DIR=/usr/include/python3.6m         -DPYTHON3_LIBRARY=/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu/libpython3.6.so         -DPYTHON3_PACKAGES_PATH=/usr/local/lib/python3.6/dist-packages/         -DPYTHON_NUMPY_INCLUDE_DIR=/usr/local/lib/python3.6/dist-packageis/numpy/core/         -DBUILD_NEW_PYTHON_SUPPORT=ON 
+  435  vim /home/michal/opencv/build/CMakeFiles/CMakeOutput.log
+  436  vim /home/michal/opencv/build/CMakeFiles/CMakeError.log 
+  437  python3.5 pip install
+  438  python3.5 -m pip install
+  439  python3 -m pip install
+  440  wget https://bootstrap.pypa.io/get-pip.py
+  441  sudo python3 get-pip.py
+  442  sudo apt-get install python3.4-dev
+  443  history | head -300
+  444  sudo dpkg-reconfigure lightdm 
+  445  sudo start lightdm
+  446  ps aux | grep X
+  447  sudo service lightdm restart
+  448  sudo apt update
+  449  apt list --upgradable
+  450  sudo apt install software-properties-common
+  451  sudo add-apt-repository ppa:deadsnakes/ppa
+  452  sudo apt install python3.7
+  453  sudo apt update
+  454  sudo apt install python3.7
+  455  python3.7 --version
+  456  python3.7 -m pip install cv2
+  457  sudo apt-get install python3.7-pip
+  458  sudo apt-get remove python3-pip 
+  459  sudo apt-get remove python3-dev 
+  460  sudo apt-get remove python3.5-dev 
+  461  sudo apt purge python-pip python-dev
+  462  sudo apt-get  remove python3
+  463  sudo apt-get  remove python5
+  464  sudo apt-get  remove python3.5
+  465  sudo apt-get install python3-pip
+  466  sudo apt-get --purge autoremove python3-pip
+  467  sudo apt-get --purge autoremove python-pip
+  468  sudo apt-get --purge autoremove python-dev
+  469  sudo apt-get --purge autoremove python3-dev
+  470  sudo apt-get --purge autoremove python3*
+  471  pip3 install opencv-python
+  472  sudo pip3 install opencv-python
+  473  sudo pip3 install opencv2-python
+  474  sudo apt-get --purge autoremove python*
+  475  pyth
+  476  python
+  477  sudo apt-get --purge autoremove 
+  478  sudo apt-get install firefox
+  479  sudo pip uninstall
+  480  sudo -H pip uninstall
+  481  sudo apt-get --purge autoremove python-pip3
+  482  sudo apt-get --purge autoremove python-pip
+  483  sudo apt-get --purge autoremove python3-pip
+  484  pip
+  485  pip uninstall pip
+  486  sudo -H pip uninstall pip
+  487  sudo -H pip2 uninstall pip
+  488  sudo -H pip2 uninstall pip2
+  489  pip2
+  490  pip2.7 
+  491  sudo add-apt-repository ppa:jonathonf/python-3.6
+  492  sudo apt-get update
+  493  sudo apt-get install python3.6
+  494  sudo apt-get install software-center
+  495  sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+  496  sudo apt-get update
+  497  sudo apt-get omstall ubuntu-make
+  498  sudo apt-get install ubuntu-make
+  499  umake ide pycharm
+  500  python3
+  501  history
+  502  history > ~/Desktop/commands.txt
