@@ -52,6 +52,8 @@ public:
     std::mutex pose_mutex;
 
     geometry_msgs::Pose marker_pose[4];
+    geometry_msgs::Pose marker_end_pose[4];
+
     std::mutex marker_mutex;
 };
 
@@ -79,19 +81,33 @@ int main(int argc, char **argv)
     ros::Publisher pos_pub2 = nodeHandler.advertise<geometry_msgs::Pose>("/slam/marker2", 1);
     ros::Publisher pos_pub3 = nodeHandler.advertise<geometry_msgs::Pose>("/slam/marker3", 1);
     ros::Publisher pos_pub4 = nodeHandler.advertise<geometry_msgs::Pose>("/slam/marker4", 1);
-    
+    ros::Publisher pos_end_pub1 = nodeHandler.advertise<geometry_msgs::Pose>("/slam/marker_end1", 1);
+    ros::Publisher pos_end_pub2 = nodeHandler.advertise<geometry_msgs::Pose>("/slam/marker_end2", 1);
+    ros::Publisher pos_end_pub3 = nodeHandler.advertise<geometry_msgs::Pose>("/slam/marker_end3", 1);
+    ros::Publisher pos_end_pub4 = nodeHandler.advertise<geometry_msgs::Pose>("/slam/marker_end4", 1);
+
     // ros::Rate loop_rate(0.1);
     chrono::time_point<chrono::system_clock> start, current;
     start = chrono::system_clock::now();
     while (ros::ok()) {
         current = chrono :: system_clock::now();
         if (current-start> std::chrono::milliseconds(100)) {
-             start = current;
-            pos_pub.publish(igb.GetPose());
-            pos_pub1.publish(igb.marker_pose[0]);
-            pos_pub2.publish(igb.marker_pose[1]);
-            pos_pub3.publish(igb.marker_pose[2]);
-            pos_pub4.publish(igb.marker_pose[3]);
+            start = current;
+            {
+                // unique_lock<mutex> lock(igb.pose_mutex);
+                pos_pub.publish(igb.GetPose());
+            }
+            {
+                // unique_lock<mutex> lock2(igb.marker_mutex);
+                pos_pub1.publish(igb.marker_pose[0]);
+                pos_pub2.publish(igb.marker_pose[1]);
+                pos_pub3.publish(igb.marker_pose[2]);
+                pos_pub4.publish(igb.marker_pose[3]);
+                pos_end_pub1.publish(igb.marker_end_pose[0]);
+                pos_end_pub2.publish(igb.marker_end_pose[1]);
+                pos_end_pub3.publish(igb.marker_end_pose[2]);
+                pos_end_pub4.publish(igb.marker_end_pose[3]);
+            }
         }
       ros::spinOnce();
     //   loop_rate.sleep();
@@ -178,6 +194,27 @@ void ImageGrabber::GrabImage(const sensor_msgs::ImageConstPtr& msg)
         marker_pose[3].position.x = pc[3][0];
         marker_pose[3].position.y = pc[3][1];
         marker_pose[3].position.z = pc[3][2];
+        delete [] pc;
+    }
+        {
+        unique_lock<mutex> lock(marker_mutex);
+        float (*pc)[3] = (float (*)[3])mpSLAM->getPC_END();
+  
+        marker_end_pose[0].position.x = pc[0][0];   
+        marker_end_pose[0].position.y = pc[0][1];
+        marker_end_pose[0].position.z = pc[0][2];
+
+        marker_end_pose[1].position.x = pc[1][0];
+        marker_end_pose[1].position.y = pc[1][1];
+        marker_end_pose[1].position.z = pc[1][2];
+
+        marker_end_pose[2].position.x = pc[2][0];
+        marker_end_pose[2].position.y = pc[2][1];
+        marker_end_pose[2].position.z = pc[2][2];
+
+        marker_end_pose[3].position.x = pc[3][0];
+        marker_end_pose[3].position.y = pc[3][1];
+        marker_end_pose[3].position.z = pc[3][2];
         delete [] pc;
     }
 }

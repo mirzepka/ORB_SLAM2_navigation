@@ -49,6 +49,8 @@ public:
     // Draw last processed frame.
     cv::Mat DrawFrame();
     void * getPC();
+    void * getPC_END();
+
 protected:
 
     void DrawTextInfo(cv::Mat &im, int nState, cv::Mat &imText);
@@ -67,6 +69,7 @@ protected:
 
     Map* mpMap;
     float pc[4][3];
+    float pc_end[4][3];
     
     std::mutex mMutex;
 };

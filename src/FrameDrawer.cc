@@ -45,6 +45,14 @@ void * FrameDrawer::getPC()
     return (void *)res;
 }
 
+void * FrameDrawer::getPC_END()
+{
+    unique_lock<mutex> lock(mMutex);
+    float (*res)[3] = new float[4][3];
+    memcpy(res, pc_end, 3*4*sizeof(pc_end[0][0]));
+    return (void *)res;
+}
+
 cv::Mat FrameDrawer::DrawFrame()
 {
     cv::Mat im;
@@ -121,7 +129,8 @@ cv::Mat FrameDrawer::DrawFrame()
     }
     else if(state==Tracking::OK) //TRACKING
     {
-        std::vector<std::vector<cv::Mat>> matching_points(4, std::vector<cv::Mat>());
+        std::vector<std::vector<cv::Mat>> matching_points_start_marker(4, std::vector<cv::Mat>());
+        std::vector<std::vector<cv::Mat>> matching_points_end_marker(4, std::vector<cv::Mat>());
         mnTracked=0;
         mnTrackedVO=0;
         const float r = 5;
@@ -141,10 +150,12 @@ cv::Mat FrameDrawer::DrawFrame()
                 {
                     cv::Scalar scalar(0,255,255);
 
+                    int vec_idx = -1;
                     for(auto rectagle : markerCorners)
                     {
+                        ++vec_idx;
+                        int marker_id = markerIds[vec_idx];
                         int idx = 0;
-                        //MIRZE TODO add if for specified marker id
                         for(auto point : rectagle)
                         {
                             float x=pt1.x-point.x;
@@ -156,8 +167,12 @@ cv::Mat FrameDrawer::DrawFrame()
                                 int font = cv::FONT_HERSHEY_SIMPLEX;
                                 if (mvCurrentMapPoints[i] != NULL) {
                                     if (mvCurrentMapPoints[i]->GetNormalSize()>0) {
-                                        // matching_points[idx].push_back(mvCurrentMapPoints[i]->GetNormal());
-                                        matching_points[idx].push_back(mvCurrentMapPoints[i]->GetWorldPos());
+                                        if (marker_id == 25) {
+                                            matching_points_start_marker[idx].push_back(mvCurrentMapPoints[i]->GetWorldPos());
+                                        }
+                                        else if (marker_id == 5) { 
+                                            matching_points_end_marker[idx].push_back(mvCurrentMapPoints[i]->GetWorldPos());
+                                        }
                                         cv::putText(im,"P("+std::to_string(mvCurrentMapPoints[i]->GetNormaAt(0)) +
                                                        ", "+std::to_string(mvCurrentMapPoints[i]->GetNormaAt(1)) +
                                                        ", "+std::to_string(mvCurrentMapPoints[i]->GetNormaAt(2)) + ")",vCurrentKeys[i].pt, font, 0.5,(255,255,255),1,cv::LINE_AA);
@@ -182,7 +197,7 @@ cv::Mat FrameDrawer::DrawFrame()
         }
         float pc_tmp[4][3];
         int ind = 0;
-        for (auto vec : matching_points) {
+        for (auto vec : matching_points_start_marker) {
             float x=0,y=0,z=0;
             for(auto point : vec) {
                 x += point.at<float>(0);
@@ -201,11 +216,40 @@ cv::Mat FrameDrawer::DrawFrame()
             ++ind;
             std::cout<<"("+std::to_string(x)+","+std::to_string(y)+","+std::to_string(z)+")\n";
         }
-        {
+        if (!matching_points_start_marker.empty()) {
             unique_lock<mutex> lock(mMutex);
             for (int p1=0; p1<4; ++p1) {
                 for (int r1=0; r1<3; ++r1) {
                     pc[p1][r1] = pc_tmp[p1][r1]; 
+                }
+            }
+        }
+        //////////////////////  END MARKER
+        ind = 0;
+        for (auto vec : matching_points_end_marker) {
+            float x=0,y=0,z=0;
+            for(auto point : vec) {
+                x += point.at<float>(0);
+                y += point.at<float>(1);
+                z += point.at<float>(2);
+            }
+            if (!vec.empty())
+            {
+                x/=vec.size();
+                y/=vec.size();
+                z/=vec.size();
+            }
+            pc_tmp[ind][0] = x;
+            pc_tmp[ind][1] = y;
+            pc_tmp[ind][2] = z;
+            ++ind;
+            std::cout<<"("+std::to_string(x)+","+std::to_string(y)+","+std::to_string(z)+")\n";
+        }
+        if (!matching_points_end_marker.empty()) {
+            unique_lock<mutex> lock(mMutex);
+            for (int p1=0; p1<4; ++p1) {
+                for (int r1=0; r1<3; ++r1) {
+                    pc_end[p1][r1] = pc_tmp[p1][r1]; 
                 }
             }
         }
