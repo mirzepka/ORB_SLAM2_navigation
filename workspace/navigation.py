@@ -10,14 +10,16 @@ import math
 
 class navigation:
     debug = True
-    MARKER_SIZE = 0.075
+    MARKER_SIZE = 0.167 #0.075
     scale = 1.0
     points = [[], [], []]
     points_raw = [[], [], []]
     marker = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
     marker_raw = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+    marker_center = [0.0, 0.0, 0.0]
     marker_end = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
     marker_end_raw = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+    marker_center_end = [0.0, 0.0, 0.0]
     vect = [0.0, 0.0, 0.0]
     rotX = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
     rotY = [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
@@ -45,6 +47,7 @@ class navigation:
         corners = []
         for corner in self.marker:
             corners.append(numpy.array((corner[0], corner[1], corner[2])))
+
         dist = []
         for corner in range(3):
             dist.append(numpy.linalg.norm(corners[corner] - corners[corner+1]))
@@ -68,6 +71,12 @@ class navigation:
             yy = []
             zz = []
             self.reinitialize()
+            for corner in self.marker:
+                for idx in range(3):
+                    self.marker_center[idx] += corner[idx]
+            for idx in range(3):
+                self.marker_center[idx] /= 4
+
             for i in range(len(self.marker)):
                 # self.marker[i][0] /= self.scale
                 # self.marker[i][1] /= self.scale
@@ -124,6 +133,12 @@ class navigation:
             yy.append(self.marker_end[i][1])
             zz.append(self.marker_end[i][2])
 
+        for corner in self.marker_end:
+            for idx in range(3):
+                self.marker_center_end[idx] += corner[idx]
+        for idx in range(3):
+            self.marker_center_end[idx] /= 4
+
         for idx in range(len(self.marker_end)):
             self.marker_end[idx] = self.rotate(self.marker_end[idx])
 
@@ -143,23 +158,16 @@ class navigation:
         self.calculateDistanceBetweenMarkers()
 
     def calculateDistanceBetweenMarkers(self):
-        corner_num = 0
-        corner_end_num = 0
-        corners = []
-        corners_end = []
         print "Distance makrers:"
         print self.marker
         print self.marker_end
-        for corner in self.marker:
-            corners.append(numpy.array((corner[0], corner[1], corner[2])))
-        for corner in self.marker_end:
-            corners_end.append(numpy.array((corner[0], corner[1], corner[2])))
-        dist = numpy.linalg.norm(corners[corner_num] - corners_end[corner_end_num])
+        center_poit = numpy.array((self.marker_center[0], self.marker_center[1], self.marker_center[2]))
+        center_poit_end = numpy.array((self.marker_center_end[0], self.marker_center_end[1], self.marker_center_end[2]))
+        dist = numpy.linalg.norm(center_poit - center_poit_end)
         print "Distance is {} cm".format(dist*100)
-        xx = [self.marker[corner_num][0], self.marker_end[corner_end_num][0]]
-        yy = [self.marker[corner_num][1], self.marker_end[corner_end_num][1]]
-        zz = [self.marker[corner_num][2], self.marker_end[corner_end_num][2]]
-
+        xx = [self.marker_center[0], self.marker_center_end[0]]
+        yy = [self.marker_center[1], self.marker_center_end[1]]
+        zz = [self.marker_center[2], self.marker_center_end[2]]
         print "Distancepoints:"
         print xx
         print yy

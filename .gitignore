@@ -23,4 +23,4 @@ build/
 lib/
 workspace/venv*
 workspace/fifo
-
+workspace/samples/output*
